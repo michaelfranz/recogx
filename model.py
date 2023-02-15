@@ -4,6 +4,7 @@
 
 import torch.nn as nn
 
+
 class GenderClassifier(nn.Module):
     def __init__(self):
         super(GenderClassifier, self).__init__()
