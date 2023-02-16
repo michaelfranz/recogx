@@ -36,14 +36,11 @@ The preprocessing code in included in this project in the Jupyter notebook
 
 ## MODEL 
 
-The model chosen to perform this task is a Convolutional Neural Network (CNN). The CNN does not process audio samples
-(in the ```wav``` format) directly, but instead processes an image representation (in the ```jpg``` format) of the 
-original audio. The image represents a so-called Mel-frequency cepstrum (MFC). 
-For example, the following MFC image represents a female saying the digit "zero": 
+The model chosen to perform this task is a Convolutional Neural Network (CNN). The CNN does not process audio samples (in the ```wav``` format) directly, but instead processes an image representation (in the ```jpg``` format) of the original audio. The image represents a so-called Mel-frequency cepstrum (MFC). For example, the following MFC image represents a female saying the digit "zero": 
 
-![img_1.png](img_1.png)
+![img_2.png](img_2.png)
    
-These greyscale images have shape 98x12x1, and the CNN is specifically designed to process shapes of this kind.                                
+These RGB images have shape 98x12x3, and the CNN is specifically designed to process shapes of this kind.                                
 
 ## HYPERPARAMETER OPTIMSATION
 

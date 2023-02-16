@@ -87,8 +87,8 @@ def main():
 
     train_set = datasets.ImageFolder('mfc_dataset_train_test/train', transform=transform)
     train_loader = torch.utils.data.DataLoader(train_set, shuffle=True, **train_kwargs)
-    test_set = datasets.ImageFolder('mfc_dataset_train_test/test', transform=transform)
-    test_loader = torch.utils.data.DataLoader(test_set, shuffle=True, **train_kwargs)
+    val_set = datasets.ImageFolder('mfc_dataset_train_test/val', transform=transform)
+    val_loader = torch.utils.data.DataLoader(val_set, shuffle=True, **train_kwargs)
 
     model = GenderClassifier().to(device)
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
@@ -98,10 +98,10 @@ def main():
     for epoch in range(1, args.epochs + 1):
         t0 = time.time()
         train(args, model, device, train_loader, optimizer, epoch)
-        test_accuracy = test(model, device, test_loader)
+        validation_accuracy = test(model, device, val_loader)
         scheduler.step()
         dur.append(time.time() - t0)
-        print('Epoch: {:.0f}, Test accuracy: {:.0f}%, Av. time/epoch: {:.3f}s'.format(epoch, test_accuracy, np.mean(dur)))
+        print('Epoch: {:.0f}, Validation accuracy: {:.0f}%, Av. time/epoch: {:.3f}s'.format(epoch, validation_accuracy, np.mean(dur)))
 
     if args.save_model:
         torch.save(model.state_dict(), "mnist_cnn.pt")
