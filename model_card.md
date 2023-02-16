@@ -46,12 +46,14 @@ The model performs a binary classification, and therefore outputs a zero or a on
 
 ## Performance
 
+TODO
 Give a summary graph or metrics of how the model performs. Remember to include how you are measuring the performance and what data you analysed it on. 
 
 ## Limitations
 
-TODO 
+The model's accuracy is obviously limited. The primary aim of the project was to demonstrate understanding, as opposed to achieving high accuracy. Given that this was the author's first shot at creating a CNN for processing audio, it is highly likely that accuracy would be improved with further work.
 
 ## Trade-offs
 
-Outline any trade-offs of your model, such as any circumstances where the model exhibits performance issues. 
+The main trade-off was already expressed under Limitations: The model was designed for demonstration as opposed to performance.
+The relative simplicity of the model comes at the expense of accuracy. 

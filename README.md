@@ -11,21 +11,20 @@ The software has been trained using a large number of recordings of human adults
 
 ## DATA
 
-The data used to train this solution is AudioMNIST. It is widely used to train deep and/or convolutional neural 
+The data used to train and validate this solution is AudioMNIST. It is widely used to train deep and/or convolutional neural 
 networks for speech-recognition tasks. In this project the dataset is used to train a CNN to classify audio input as 
 either male or female depending on the speaker.
 
 The dataset was created by Becker et al and is available here: https://github.com/soerenab/AudioMNIST.
 The creators of the dataset request that projects using their work cite the following paper:
 
-|          |                        |
-| ------------- |------------------------------------------------------------------------------------------------------------|
-| Title         | Interpreting and Explaining Deep Neural Networks for Classification of Audio Signals                       |
-| Journal       | CoRR |
-| Volume        | abs/1807.03418 |
-| Year          | 2018 |
-| ArchivePrefix | arXiv |
-| Eprint        | 1807.03418 |
+| Paper Title   | Interpreting and Explaining Deep Neural Networks for Classification of Audio Signals                       |
+|---------------|------------------------------------------------------------------------------------------------------------|
+| Journal       | CoRR                                                                                                       |
+| Volume        | abs/1807.03418                                                                                             |
+| Year          | 2018                                                                                                       |
+| ArchivePrefix | arXiv                                                                                                      |
+| Eprint        | 1807.03418                                                                                                 |
 | Authors       | Becker, Sören and Ackermann, Marcel and Lapuschkin, Sebastian and Müller, Klaus-Robert and Samek, Wojciech |
 
 These data must be preprocessed in order to make them suitable for processing by a convolutional neural network.
@@ -36,7 +35,7 @@ The preprocessing code in included in this project in the Jupyter notebook
 
 Test audio was obtained from the author's work environment. These audio samples are
 comparable to the AudioNIST samples, in that they are approximately 1s in length and
-are recordings of adults verbalising the digits zero through 9. One difference is that
+are recordings of adults verbalising the digits 0 through 9. One difference is that
 speakers provided samples in different languages. This was a quick way to obtain a 
 larger test set. If the model is working well, and as long as speakers do not 
 fundamentally change their voices when speaking the foreign language, these samples
@@ -70,11 +69,11 @@ A summary of your results and what you can learn from your model
 
 ## NOTES ON HARDWARE AND PROCESSING SPEED
 
-The project tries to make use of specialised hardware. Training was performed on a Mac M1 Max with both CPU and MPS (Mac M1 GPU). Switching from CPU to GPU results in a 3-fold increase in training speed.  
+The project tries to exploit specialised hardware, if present. Training was performed on a Mac M1 Max with both CPU and MPS (Mac M1 GPU). Switching from CPU to GPU results in a 3-fold increase in training speed. The project will automatically detect cuda or mps hardware if present. Program arguments can be used to disable these options of required.  
 
 ## CONTACT DETAILS
 
-Mike Mannion
+Mike Mannion B.Sc. (hons) MBA
 michaelmannion@me.com
 
  
