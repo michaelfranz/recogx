@@ -44,9 +44,15 @@ These RGB images have shape 98x12x3, and the CNN is specifically designed to pro
 
 ## HYPERPARAMETER OPTIMSATION
 
-TODO 
+I performed a exhausive grid search of the following hyperparameters and values:
 
-Description of which hyperparameters you have and how you chose to optimise them. 
+| Parameter     | Value 1 | Value 2 | Value 3 |
+|---------------|---------|---------|---------|
+| Epochs        | 5       | 10      | 20      |
+| Learning rate | 0.1     | 0.01    | 0.001   |
+| Gamma         | 0.1     | 0.3     | 0.7     |
+
+Gamma is the multiplicative factor of learning rate decay. THe learning rate was adjusted every 5 epochs.
 
 ## RESULTS
 
