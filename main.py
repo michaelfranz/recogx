@@ -1,4 +1,8 @@
 import argparse
+import time
+
+import numpy as np
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -39,17 +43,17 @@ def test(model, device, test_loader):
 
     test_loss /= len(test_loader.dataset)
 
-    print('\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
-        test_loss, correct, len(test_loader.dataset),
-        100. * correct / len(test_loader.dataset)))
+    print('\nTest set: Average loss: {:.4f}, Accuracy: {}/{}\n'.format(
+        test_loss, correct, len(test_loader.dataset)))
+    return 100. * correct / len(test_loader.dataset)
 
 
 def main():
     # Training settings
-    parser = argparse.ArgumentParser(description='PyTorch MNIST Example')
+    parser = argparse.ArgumentParser(description='Audio Gender Classifier')
     parser.add_argument('--batch-size', type=int, default=32, metavar='N', help='input batch size for training (default: 32)')
     parser.add_argument('--test-batch-size', type=int, default=32, metavar='N', help='input batch size for testing (default: 32)')
-    parser.add_argument('--epochs', type=int, default=8, metavar='N', help='number of epochs to train (default: 8)')
+    parser.add_argument('--epochs', type=int, default=20, metavar='N', help='number of epochs to train (default: 8)')
     parser.add_argument('--lr', type=float, default=0.0001, metavar='LR', help='learning rate (default: 0.0001)')
     parser.add_argument('--gamma', type=float, default=0.7, metavar='M', help='Learning rate step gamma (default: 0.7)')
     parser.add_argument('--no-cuda', action='store_true', default=False, help='disables CUDA training')
@@ -89,11 +93,15 @@ def main():
     model = GenderClassifier().to(device)
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
 
-    scheduler = StepLR(optimizer, step_size=1, gamma=args.gamma)
+    scheduler = StepLR(optimizer, step_size=5, gamma=args.gamma)
+    dur = []
     for epoch in range(1, args.epochs + 1):
+        t0 = time.time()
         train(args, model, device, train_loader, optimizer, epoch)
-        test(model, device, test_loader)
+        test_accuracy = test(model, device, test_loader)
         scheduler.step()
+        dur.append(time.time() - t0)
+        print('Epoch: {:.0f}, Test accuracy: {:.0f}%, Av. time/epoch: {:.3f}s'.format(epoch, test_accuracy, np.mean(dur)))
 
     if args.save_model:
         torch.save(model.state_dict(), "mnist_cnn.pt")

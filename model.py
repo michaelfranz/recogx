@@ -1,4 +1,4 @@
-# Here we define a CNN model with three convolutional layers, two fully connected layers, and ReLU activation
+# Defines a CNN model with 2 convolutional layers, 1 max pool layer, 2 fully connected layers, and ReLU activation
 # functions. The model takes in Mel-frequency cepstrum (MFC) images of size 98x12 and outputs a binary classification
 # (male or female).
 
