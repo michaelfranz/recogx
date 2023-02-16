@@ -11,9 +11,11 @@ adult female voices.
 
 For more information on MFC, see https://en.wikipedia.org/wiki/Mel-frequency_cepstrum
 
-The model therefore does not work with audio directly. Instead an audio sample is
+The model therefore does not work with audio directly. Instead， an audio sample is
 converted to an MFC image using some utility code, which for convenience is included
-in this project.
+in this project. The preprocessing code produces objects, which are already of the correct
+shape for input to the model. This saves us having to resize the inputs when loading  
+data.
 
 **Output:**
 
@@ -55,5 +57,4 @@ The model's accuracy is obviously limited. The primary aim of the project was to
 
 ## Trade-offs
 
-The main trade-off was already expressed under Limitations: The model was designed for demonstration as opposed to performance.
-The relative simplicity of the model comes at the expense of accuracy. 
+The main trade-off was already expressed under Limitations: The model was designed for demonstration as opposed to performance. The relative simplicity of the model comes at the expense of accuracy. 
