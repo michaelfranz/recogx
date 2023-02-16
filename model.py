@@ -3,6 +3,7 @@
 # (male or female).
 
 import torch.nn as nn
+from torchsummary import summary
 
 
 class GenderClassifier(nn.Module):
@@ -24,3 +25,11 @@ class GenderClassifier(nn.Module):
         x = self.relu(self.fc1(x))
         x = self.fc2(x)
         return x
+
+
+def main():
+    summary(GenderClassifier(), (3, 98, 12))
+
+
+if __name__ == '__main__':
+    main()
