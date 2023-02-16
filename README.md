@@ -32,7 +32,7 @@ These data must be preprocessed in order to make them suitable for processing by
 Preprocessing includes adding a specific form of emphasis, as well as padding. Padding ensures that the resulting input 
 has the same length irrespective of audio sample. 
 The preprocessing code in included in this project in the Jupyter notebook 
-```preprocess_wav.ipynb```.  
+```preprocess_audiomnist.ipynb```.  
 
 ## MODEL 
 
@@ -60,6 +60,9 @@ TODO
 
 A summary of your results and what you can learn from your model 
 
+## PERFORMANCE NOTES
+
+The project tries to make use of specialised hardware. Training was performed on a Mac M1 Max with both CPU and MPS (Mac M1 GPU). Switching from CPU to GPU results in a 3-fold increase in training speed.  
 
 ## CONTACT DETAILS
 
