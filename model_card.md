@@ -53,7 +53,7 @@ Give a summary graph or metrics of how the model performs. Remember to include h
 
 ## Limitations
 
-The model's accuracy is obviously limited. The primary aim of the project was to demonstrate understanding, as opposed to achieving high accuracy. Given that this was the author's first shot at creating a CNN for processing audio, it is highly likely that accuracy would be improved with further work.
+The model's accuracy is obviously limited. The primary aim of the project was to demonstrate understanding, as opposed to achieving high accuracy. Given that this was the author's first shot at creating a CNN for processing audio, it is highly likely that accuracy would be improved with further work. 
 
 ## Trade-offs
 
